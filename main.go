@@ -22,9 +22,7 @@ func main() {
 	// cors.Default() setup the middleware with default options being
 	// all origins accepted with simple methods (GET, POST). See
 	// documentation below for more options.
-	c := cors.New(cors.Options{
-		AllowedHeaders: []string{"example-header"},
-	})
+	c := cors.AllowAll()
 	log.Printf("listening on port %s\n", port)
 	if err := http.ListenAndServe(":"+port, c.Handler(mux)); err != nil {
 		log.Fatalln(err)
